@@ -103,3 +103,15 @@ This chapter gives you a brief overview o call graphs and PointsTo analysis in A
 |Title |Tutorial | Soot Code        | Example Input  |
 | :---: |:-------------: |:-------------:| :-----:|
 | | | | |
+
+
+//////////////////////////////////
+# Lab submission
+## step 1-5
+![image](https://github.com/SOEN345-WINTER2024/cfg-graph-lab-PaulFarid/assets/61884929/89e9a757-62b7-4901-8a1c-1dda99d50533)
+
+![image](https://github.com/SOEN345-WINTER2024/cfg-graph-lab-PaulFarid/assets/61884929/08eea33b-c615-4551-a5bc-6fe08d6ef5ef)
+
+![image](https://github.com/SOEN345-WINTER2024/cfg-graph-lab-PaulFarid/assets/61884929/6ea29f24-69d7-4996-a45e-5dd654d317f9)
+
+
