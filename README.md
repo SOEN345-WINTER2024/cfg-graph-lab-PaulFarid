@@ -115,4 +115,76 @@ Poula Farid (40208791)
 
 ![image](https://github.com/SOEN345-WINTER2024/cfg-graph-lab-PaulFarid/assets/61884929/6ea29f24-69d7-4996-a45e-5dd654d317f9)
 
+# Part 2
+Project Function :
+    override fun onCreate() {
+        super.onCreate()
 
+        WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
+
+        connectionStateMonitor.enable()
+
+        setupLeakCanary()
+
+        // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
+
+        // This handler will catch exceptions thrown from Observables after they are disposed,
+        // or from Observables that are (deliberately or not) missing an onError handler.
+        // TODO: consider more comprehensive handling of these errors.
+        RxJavaPlugins.setErrorHandler(Functions.emptyConsumer())
+
+        currentTheme = unmarshalTheme(Prefs.currentThemeId)
+
+        initTabs()
+        enableWebViewDebugging()
+        registerActivityLifecycleCallbacks(activityLifecycleHandler)
+        registerComponentCallbacks(activityLifecycleHandler)
+        NotificationCategory.createNotificationChannels(this)
+        AppShortcuts.setShortcuts(this)
+
+        // Kick the notification receiver, in case it hasn't yet been started by the system.
+        NotificationPollBroadcastReceiver.startPollTask(this)
+        InstallReferrerListener.newInstance(this)
+
+        // For good measure, explicitly call our token subscription function, in case the
+        // API failed in previous attempts.
+        WikipediaFirebaseMessagingService.updateSubscription()
+
+        EventPlatformClient.setUpStreamConfigs()
+    }
+## step 1
+<img width="617" alt="image" src="https://github.com/SOEN345-WINTER2024/cfg-graph-lab-PaulFarid/assets/61884929/4fe70923-82d2-43d7-8845-53d04952960e">
+
+## step 2
+Node Coverage:
+TR: {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16}
+Test Path: [Start → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12 → 13 → 14 → 15 → 16 → End]
+## step 3
+Edge-Coverage:
+TR:{(Start, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 12), (12, 13), (13, 14), (14, 15), (15, 16), (16, End)}
+Test Path: [Start → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12 → 13 → 14 → 15 → 16 → End]
+## step 4
+TR: {((Start, 1), (1, 2))
+((1, 2), (2, 3))
+((2, 3), (3, 4))
+((3, 4), (4, 5))
+((4, 5), (5, 6))
+((5, 6), (6, 7))
+((6, 7), (7, 8))
+((7, 8), (8, 9))
+((8, 9), (9, 10))
+((9, 10), (10, 11))
+((10, 11), (11, 12))
+((11, 12), (12, 13))
+((12, 13), (13, 14))
+((13, 14), (14, 15))
+((14, 15), (15, 16))
+((15, 16), (16, End))}
+Test Path: [Start → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12 → 13 → 14 → 15 → 16 → End]
+## step 5
+
+<img width="617" alt="image" src="https://github.com/SOEN345-WINTER2024/cfg-graph-lab-PaulFarid/assets/61884929/4fe70923-82d2-43d7-8845-53d04952960e">
+
+The Extended Flow Graph (EFG) can be represented similarly to the CFG, but it would include additional nodes to represent decision points and loops. Since the provided function doesn't contain decision points or loops, the EFG would be the same as the CFG.
+Therefore, the EFG graph would be the same as the CFG graph provided above.
